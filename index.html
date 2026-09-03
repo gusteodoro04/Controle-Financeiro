@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Controle Financeiro</title>
+</head>
+
+<body>
+  <h1 class="title">Controle Financeiro</h1>
+
+  <div class="container">
+    <div class="item">
+      <h4>Saldo</h4>
+
+      <h1 id="balanco" class="balanco">R$0.00</h1>
+
+      <div class="inc-exp-container">
+        <div>
+          <h3 class="montante">Receitas</h3>
+          <p id="din-positivo" class="din positivo">+ R$0.00</p>
+        </div>
+
+        <div>
+          <h3 class="montante">Despesas</h3>
+          <p id="din-negativo" class="din negativo">- R$0.00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h4>Adicionar transação</h4>
+
+      <form id="form">
+        <div class="form-control">
+          <label for="descricao">
+            <h3>Descrição</h3>
+          </label>
+          <input autofocus type="text" id="descricao" placeholder="Descrição da transação" />
+        </div>
+
+        <div class="form-control">
+          <label for="montante">
+            <h3>Valor R$</h3>
+          </label>
+          <input type="number" step="0.01" min="0.01" id="montante" placeholder="Valor da transação em R$" />
+
+          <!-- Em vez do usuário digitar um número negativo para indicar despesa,
+               ele escolhe o tipo da transação neste seletor. O sinal do valor
+               é definido pelo JS a partir da opção marcada aqui. -->
+          <div class="tipo-transacao" role="radiogroup" aria-label="Tipo da transação">
+            <input type="radio" name="tipo" id="tipo-receita" value="receita" checked />
+            <label for="tipo-receita" class="tipo-btn tipo-receita">
+              <span aria-hidden="true">▲</span> Receita
+            </label>
+
+            <input type="radio" name="tipo" id="tipo-despesa" value="despesa" />
+            <label for="tipo-despesa" class="tipo-btn tipo-despesa">
+              <span aria-hidden="true">▼</span> Despesa
+            </label>
+          </div>
+        </div>
+
+        <button class="btn">Adicionar</button>
+      </form>
+    </div>
+
+    <div class="item">
+      <h4>Transações</h4>
+
+      <ul id="transacoes" class="transacoes">
+        <!-- <li class="positivo">
+          Salário <span>R$5000</span><button class="delete-btn">X</button>
+        </li>
+        <li class="negativo">
+          Aluguel <span>R$-900</span><button class="delete-btn">X</button>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+
+  <script src="controle.js"></script>
+</body>
+
+</html>
